@@ -1,0 +1,9 @@
+.slide {
+    position: absolute;
+    list-style-type: none;
+}
+
+.slide1{opacity: 0;}
+.slide2{opacity: 0;}
+.slide3{opacity: 0;}
+.slide4{opacity: 0;}
