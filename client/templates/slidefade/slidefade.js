@@ -11,32 +11,39 @@ Template.slidefade.onCreated(function () {
 });
 
 Template.slidefade.onRendered(function() {
-    var currentSlide = 0;
-    var slides = [1,2,3,4];
-    var length = slides.length;
-    var firstLoad = 0;
-
-    console.log(length);
-
-    setInterval(function() {
-        if (currentSlide >= length)
-        {
-            currentSlide = 0;
-            fadeDownNew(slides);
-
-        }
-        else
-            console.log(currentSlide);
-            console.log(slides[currentSlide]);
-            fadeUp(slides[currentSlide])
-
-            currentSlide++;
-
-
-
-
-
-    }, 3000);
+    //var currentSlide = 0;
+    //var slides = [1,2,3,4];
+    //var length = slides.length;
+    //var firstLoad = 0;
+    //
+    //console.log(length);
+    //
+    //setInterval(function() {
+    //    if (currentSlide >= length)
+    //    {
+    //        currentSlide = 0;
+    //        fadeDownNew(slides);
+    //
+    //    }
+    //
+    //    console.log(currentSlide);
+    //    console.log(slides[currentSlide]);
+    //    fadeUp(slides[currentSlide]);
+    //
+    //    currentSlide++;
+    //
+    //
+    //
+    //
+    //
+    //}, 3000);
+    var slideShowSettings = {
+        slideDuration: 3000,
+        transitionDuration: 1000,
+        slideArray: [1,2,3,4],
+        selector: $(".slide")
+    };
+    CreateSlideShow(slideShowSettings);
 });
 
 Template.slidefade.onDestroyed(function () {
@@ -72,3 +79,5 @@ function fadeDownNew(array)
 
 
 }
+
+
