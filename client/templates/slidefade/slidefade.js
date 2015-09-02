@@ -13,26 +13,22 @@ Template.slidefade.onCreated(function () {
 Template.slidefade.onRendered(function() {
     var currentSlide = 0;
     var slides = [1,2,3,4];
+    var slideDuration = 5000;
+    var fadeDuration = 1500;
     var length = slides.length;
-
-    var slideConfig = {
-        slideDuration: 3000,
-        transitionDuration: 1000,
-        slideArray: [1,2,3,4],
-        selector: '.slide'
-    };
+    var selector = '.slide';
 
     setInterval(function() {
         if (currentSlide >= length)
         {
             currentSlide = 0;
             // This call is in the element Fade.js file
-            fadeOutLastElement(slides, '.slide', slides[currentSlide], 0, 1000);
+            fadeOutLastElement(slides, selector, slides[currentSlide], 0, fadeDuration);
         }
         // This call is in the element Fade.js file
-        fadeInOut('.slide', slides[currentSlide], 1, 1000);
+        fadeInOut(selector, slides[currentSlide], 1, fadeDuration);
         currentSlide++;
-    }, 3000);
+    }, slideDuration);
 
 
 });
