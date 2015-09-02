@@ -11,45 +11,42 @@ Template.slidefade.onCreated(function () {
 });
 
 Template.slidefade.onRendered(function() {
-    //var currentSlide = 0;
-    //var slides = [1,2,3,4];
-    //var length = slides.length;
-    //var firstLoad = 0;
-    //
-    //console.log(length);
-    //
-    //setInterval(function() {
-    //    if (currentSlide >= length)
-    //    {
-    //        currentSlide = 0;
-    //        fadeDownNew(slides);
-    //
-    //    }
-    //
-    //    console.log(currentSlide);
-    //    console.log(slides[currentSlide]);
-    //    fadeUp(slides[currentSlide]);
-    //
-    //    currentSlide++;
-    //
-    //
-    //
-    //
-    //
-    //}, 3000);
-    var slideShowSettings = {
-        slideDuration: 3000,
-        transitionDuration: 1000,
-        slideArray: [1,2,3,4],
-        selector: $(".slide")
-    };
-    CreateSlideShow(slideShowSettings);
+    var currentSlide = 0;
+    var slides = [1,2,3,4];
+    var length = slides.length;
+    var firstLoad = 0;
+
+    console.log(length);
+
+    setInterval(function() {
+        if (currentSlide >= length)
+        {
+            currentSlide = 0;
+            //fadeDownNew(slides);
+
+            // This call is in the element Fade.js file
+            Meteor.call('fadeOutLastElement', slides, '.slide', slides[currentSlide], 0, 1000 )
+
+        }
+
+        console.log(currentSlide);
+        console.log(slides[currentSlide]);
+        //fadeUp(slides[currentSlide]);
+
+        // This call is in the element Fade.js file
+        Meteor.call('fadeInOut', '.slide', slides[currentSlide], 1, 1000);
+        currentSlide++;
+    }, 3000);
+
+
 });
 
 Template.slidefade.onDestroyed(function () {
     //add your statement here
 });
 
+
+// Helper function
 function fadeUp(slideNum)
 {
     $(".slide" + slideNum).animate({opacity: 1}, 1000);
