@@ -18,6 +18,10 @@ Template.slidefade.onRendered(function() {
 
     console.log(length);
 
+    Meteor.call('test', function () {
+       console.log(slides);
+    });
+
     setInterval(function() {
         if (currentSlide >= length)
         {
