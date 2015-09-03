@@ -14,8 +14,6 @@ Template.slidefade.onRendered(function() {
     var currentSlide = 0;
     var slides = [1,2,3,4];
     var length = slides.length;
-    //var slides2 = [1,2,3,4,5];
-    //var length2 = slides2.length;
     var slideDuration = 3000;
     var fadeDuration = 1000;
 
