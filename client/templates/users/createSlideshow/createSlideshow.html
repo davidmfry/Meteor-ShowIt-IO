@@ -1,0 +1,28 @@
+<template name="createSlideshow">
+    <div class="slideshow-form">
+        <div class="jumbotron">
+            <h1>Create a slideshow</h1>
+            <p>Use the from below to create your slide show.</p>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <h3>Slideshow Settings:</h3>
+                <input type="text" class="form-control" name="title" placeholder="What should we call your slideshow?">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="slide_duration" placeholder="How long do you want the slides to stay up? (use seconds)">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="fade_transition" placeholder="How long do you want the fade to be between slides? (use seconds)">
+            </div>
+            <div class="form-group">
+                <h3>Add Images:</h3>
+                {{> dropzone}}
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Slideshow</button>
+            </div>
+        </form>
+    </div>
+</template>

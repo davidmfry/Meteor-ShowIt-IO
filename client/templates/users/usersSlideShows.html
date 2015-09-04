@@ -1,0 +1,12 @@
+<template name="usersSlideShows">
+    <div class="jumbotron">
+        <h1>User Slideshows</h1>
+        <p>This will show a list of slide show urls the User has created</p>
+        <button type="button" class="btn btn-lg btn-primary">Create Slideshow</button>
+    </div>
+    <ul>
+        {{#each slideshow}}
+            <li><a href="{{pathFor 'home'}}"><h3>A Slide show</h3></a></li>
+        {{/each}}
+    </ul>
+</template>

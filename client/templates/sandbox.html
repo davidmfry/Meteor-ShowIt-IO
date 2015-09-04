@@ -1,0 +1,12 @@
+<template name="sandbox">
+    <h1>Sandbox</h1>
+    <p>This is a place to test out ideas before putting them into the real code.</p>
+    <h3>{{imageList.images.lenght}}</h3>
+    <ul>
+        {{#each imageList.images}}
+
+            <li>{{this.image}} {{this.image_id}}</li>
+        {{/each}}
+    </ul>
+
+</template>
