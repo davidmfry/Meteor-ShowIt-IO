@@ -3,13 +3,13 @@ Template.createSlideshow.helpers({
 });
 
 Template.createSlideshow.events({
-    'submit #createSlideshow-btn': function (e, tpl) {
-        e.preventDefault()
-
+    'submit .form-horizontal': function (e) {
+    //TODO: Make a better validation for the create slideshow
+        e.preventDefault();
         var slideshow = {
             title: e.target.title.value,
-            slide_duration: e.target.slide_duration.value,
-            fade_transition: e.target.fade_transition.value
+            slide_duration: convertToSeconds(e.target.slide_duration.value),
+            fade_transition: convertToSeconds(e.target.fade_transition.value)
         };
 
         Meteor.call('slideshowInsert', slideshow, function (error, result) {
@@ -18,7 +18,21 @@ Template.createSlideshow.events({
                 FlashMessages.sendError(error.reason);
                 return false;
             }
-            Router.go('/dashboard');
+            Router.go('slideshow', {_id: result._id});
         });
     }
 });
+
+
+// Helpers
+function convertToSeconds(value)
+{
+    if (!isNaN(value))
+    {
+        var toInt = parseFloat(value);
+        var seconds = toInt * 1000;
+        return String(seconds);
+    }
+
+
+}
