@@ -5,8 +5,8 @@
         <a href="{{pathFor 'createSlideshow'}}" class="btn btn-info">Create Slideshow</a>
     </div>
     <ul>
-        {{#each slideshow}}
-            <li><a href="{{pathFor ''}}"><h3>A Slide show</h3></a></li>
+        {{#each slideshows}}
+            {{> slideshowItem}}
         {{/each}}
     </ul>
 
