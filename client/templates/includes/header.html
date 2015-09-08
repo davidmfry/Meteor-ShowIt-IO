@@ -1,18 +1,10 @@
 <template name="header">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{pathFor 'home'}}">Slide-Me-IO</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                {{> loginButtons}}
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="/login">Login / Create</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+        <h3 class="text-muted">Slideshows</h3>
+    </div>
 </template>

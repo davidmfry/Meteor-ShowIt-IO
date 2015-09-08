@@ -1,7 +1,7 @@
-<template name="usersSlideShows">
+<template name="dashboard">
     <div class="jumbotron">
-        <h1>User Slideshows</h1>
-        <p>This will show a list of slide show urls the User has created</p>
+        <h3>Dashboard</h3>
+        <p>Welcome to the dashboard area for the user</p>
         <a href="{{pathFor 'createSlideshow'}}" class="btn btn-info">Create Slideshow</a>
     </div>
     <ul>
@@ -9,4 +9,5 @@
             <li><a href="{{pathFor ''}}"><h3>A Slide show</h3></a></li>
         {{/each}}
     </ul>
+
 </template>
