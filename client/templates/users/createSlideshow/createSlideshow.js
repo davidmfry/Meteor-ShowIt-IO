@@ -1,3 +1,4 @@
+var fileList = [];
 Template.createSlideshow.helpers({
     //add you helpers here
 });
@@ -18,7 +19,23 @@ Template.createSlideshow.events({
                 FlashMessages.sendError(error.reason);
                 return false;
             }
+            Meteor.call('test', Meteor.user().profile.first_name, slideshow.title);
             Router.go('slideshow', {_id: result._id});
+
+        });
+    },
+    'dropped #dropzone': function(e) {
+        e.preventDefault();
+        FS.Utility.eachFile(event, function(file) {
+            var theFile = new FS.File(file);
+            theFile.creatorId = Meteor.userId();
+            theFile.username = Meteor.user().profile.first_name;
+            Images.insert(theFile, function (err, fileObj) {
+               if(err)
+               {
+                   console.log(err);
+               }
+            });
         });
     }
 });

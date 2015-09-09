@@ -12,3 +12,10 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 raix:ui-dropped-event
 mrt:flash-messages
+msavin:mongol
+cfs:standard-packages
+cfs:filesystem
+meteorhacks:npm
+
+
+npm-container

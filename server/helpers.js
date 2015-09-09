@@ -1,3 +1,0 @@
-Meteor.methods({
-    test: function(){}
-});
