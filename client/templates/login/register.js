@@ -17,9 +17,11 @@ Template.register.events({
             Accounts.createUser({
                 email: email,
                 password: password,
+
                 profile: {
                     first_name: firstName,
-                    last_name: lastName
+                    last_name: lastName,
+                    slideShowCount:0
                 }
             }, function(err){
                 if(err) {

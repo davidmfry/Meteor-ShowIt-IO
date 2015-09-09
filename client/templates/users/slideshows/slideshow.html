@@ -3,5 +3,11 @@
     <ul>
         <li>Slide duration: {{this.slide_duration}}</li>
         <li>Slide transition duration: {{this.fade_transition}}</li>
+        <li>Total number of images: {{this.fileListCount}}</li>
+        <li>Image files: {{this.fileList}}</li>
+        {{#each images}}
+            <li>images-{{this._id}}-{{this.original.name}}</li>
+        {{/each}}
     </ul>
+
 </template>

@@ -3,4 +3,5 @@ Meteor.publish('slideshows', function () {
 });
 Meteor.publish('images', function () {
     return Images.find();
-})
+});
+

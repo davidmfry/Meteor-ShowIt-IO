@@ -1,8 +1,10 @@
 var fs = Meteor.npmRequire('fs');
 var mv = Meteor.npmRequire('mv');
+
 Meteor.methods({
-    'test': function(username, title) {
+    'moveFilesToPublic': function(username, title) {
         var noSpaceTitle = title.replace('/ /g', "_");
+        // This is created in the collections.js file with the FS collections
         var sourcePath = process.env.PWD + '/tempUploads';
         var destPath = process.env.PWD + '/public/images/' + username + "/" + noSpaceTitle;
 
