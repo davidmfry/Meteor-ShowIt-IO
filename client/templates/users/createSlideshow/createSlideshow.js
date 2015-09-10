@@ -12,7 +12,8 @@ Template.createSlideshow.events({
         var slideshow = {
             title: e.target.title.value,
             slide_duration: convertToSeconds(e.target.slide_duration.value),
-            fade_transition: convertToSeconds(e.target.fade_transition.value)
+            fade_transition: convertToSeconds(e.target.fade_transition.value),
+            test:fileList
         };
 
         Meteor.call('slideshowInsert', slideshow, fileList, Session.get('slideshowNumber'), function (error, result) {

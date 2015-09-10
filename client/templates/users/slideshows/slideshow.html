@@ -1,13 +1,11 @@
 <template name="slideshow">
-    <h1>{{this.title}}</h1>
-    <ul>
-        <li>Slide duration: {{this.slide_duration}}</li>
-        <li>Slide transition duration: {{this.fade_transition}}</li>
-        <li>Total number of images: {{this.fileListCount}}</li>
-        <li>Image files: {{this.fileList}}</li>
-        {{#each images}}
-            <li>images-{{this._id}}-{{this.original.name}}</li>
-        {{/each}}
-    </ul>
-
+    {{slideshowTitle}}
+    <div class="photo-container">
+        <ul class="slides">
+            {{#each index images}}
+                <li class="full-screen slide slide{{_index}}"
+                    style="background-image: url(/images/{{username}}/{{slideshowTitle}}/images-{{this._id}}-{{this.original.name}});"></li>
+            {{/each}}
+        </ul>
+    </div>
 </template>
