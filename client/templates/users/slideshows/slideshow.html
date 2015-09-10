@@ -1,10 +1,9 @@
 <template name="slideshow">
-    {{slideshowTitle}}
     <div class="photo-container">
         <ul class="slides">
             {{#each index images}}
                 <li class="full-screen slide slide{{_index}}"
-                    style="background-image: url(/images/{{username}}/{{slideshowTitle}}/images-{{this._id}}-{{this.original.name}});"></li>
+                    style="background-image: url(/images/{{username}}/{{title}}/images-{{this._id}}-{{this.original.name}});"></li>
             {{/each}}
         </ul>
     </div>
