@@ -1,7 +1,8 @@
 <template name="dashboard">
     <div class="jumbotron">
-        <h3>Dashboard</h3>
-        <p>Welcome to the dashboard area for the user</p>
+        <h3>Hello {{username}}!</h3>
+        <p>Welcome to the dashboard area. You can create new slideshow or view ones you have already created.
+            Just click on the link and you will be taken to that slidshow</p>
         <a href="{{pathFor 'createSlideshow'}}" class="btn btn-info">Create Slideshow</a>
     </div>
     <ul>

@@ -10,7 +10,7 @@ Template.createSlideshow.events({
 
         e.preventDefault();
         var slideshow = {
-            title: e.target.title.value,
+            title: e.target.title.value.replace(/ /g, '_'),
             slide_duration: convertToSeconds(e.target.slide_duration.value),
             fade_transition: convertToSeconds(e.target.fade_transition.value),
             test:fileList
@@ -37,9 +37,13 @@ Template.createSlideshow.events({
             theFile.slideshowId = Session.get('slideshowNumber');
             Images.insert(theFile, function (err, fileObj) {
                 if(err)
-               {
-                   console.log(err);
-               }
+                {
+                    toastr.error("Upload failed... please try again. (" + err + ")" );
+                }
+                else
+                {
+                    toastr.success('Upload succeeded!');
+                }
             });
 
             fileList.push(theFile.name())

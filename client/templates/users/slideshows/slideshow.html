@@ -1,4 +1,10 @@
 <template name="slideshow">
+
+    {{#if firstload}}
+        {{> loading}}
+    {{/if}}
+
+
     <div class="photo-container">
         <ul class="slides">
             {{#each index images}}

@@ -1,20 +1,21 @@
 
+Session.set('firstLoad', true);
+
 Template.slideshow.helpers({
     images: function () {
         return Images.find({'slideshowId': this.slideshowImagesId});
     },
     title: function () {
+        // Had to use a session var becasue it was not rendering the var
         return Session.get('slideshowTitle');
     },
     username: function () {
         return Meteor.user().profile.first_name;
     },
-    test: {
-        images: function() {
-            return Images.find({'slideshowId': this.slideshowImagesId});
-        },
-        title: this.title
+    firstload: function () {
+        return Session.get('firstLoad');
     }
+
 });
 
 Template.slideshow.onRendered(function () {
@@ -24,7 +25,17 @@ Template.slideshow.onRendered(function () {
     var currentSlide = 0;
     var selector = '.slide';
     console.log(currentSlideshow.seqArray);
+    console.log(Session.get('firstLoad'));
     setInterval(function() {
+
+        // For hiding and show the loading spinner
+        if (Session.get('firstLoad') === true)
+        {
+            Session.set('firstLoad', false);
+        }
+
+        console.log(Session.get('firstLoad'));
+
         if (currentSlide >= currentSlideshow.seqArray.length)
         {
             currentSlide = 0;
